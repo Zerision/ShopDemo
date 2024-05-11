@@ -2,24 +2,19 @@ package com.example.demo.controller;
 
 import com.example.demo.service.ShopCartService;
 import com.example.demo.utils.R;
-import com.example.demo.vo.input.BookQuery;
 import com.example.demo.vo.input.ShopCartCreateInputVO;
+import com.example.demo.vo.input.ShopCartQuery;
 import com.example.demo.vo.output.BookOutputVO;
 import com.example.demo.vo.output.ShopCartOutputVO;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import java.math.BigDecimal;
 import java.util.List;
 
-/**
- * shop cart controller
- */
-@Tag(description = "购物车控制器", name = "shop cart controller")
+@Tag(description = "shop cart controller", name = "shop cart controller")
 @RestController
 @RequestMapping("/shopCart")
 public class ShopCartController {
@@ -31,14 +26,47 @@ public class ShopCartController {
 
     /**
      * create shop cart data
-     * @param params
+     * @param param
      * @return
      */
-    @Schema(description = "创建购物车数据")
+    @Schema(description = "create shop cart data")
     @PostMapping("/create")
-    public R<List<ShopCartOutputVO>> create(@Valid @RequestBody List<ShopCartCreateInputVO> params) {
-        // 没有权限功能,默认给用户ID
-        List<ShopCartOutputVO> list = shopCartService.create(params, "1");
+    public R<List<ShopCartOutputVO>> create(@Valid @RequestBody ShopCartCreateInputVO param) {
+        // Demo userID = 1
+        List<ShopCartOutputVO> list = shopCartService.create(param.getList(), "1");
         return R.success(list);
+    }
+
+    /**
+     * get shop cart data by id
+     * @return
+     */
+    @Schema(description = "get shop cart data by id")
+    @GetMapping("/{id}")
+    public R<ShopCartOutputVO> get(@PathVariable("id") Long id) {
+        return R.success(shopCartService.selectById(id));
+    }
+
+    /**
+     * select shop cart list
+     * @param query
+     * @return
+     */
+    @Schema(description = "select shop cart list")
+    @GetMapping("/list")
+    public R<List<ShopCartOutputVO>> list(ShopCartQuery query) {
+        List<ShopCartOutputVO> list = shopCartService.selectList(query);
+        return R.success(list);
+    }
+
+    /**
+     * get shop cart total amount
+     * @param query
+     * @return
+     */
+    @Schema(description = "select shop cart total amount")
+    @GetMapping("/getTotalAmount")
+    public R<BigDecimal> getTotalAmount(ShopCartQuery query) {
+        return R.success(shopCartService.getTotalAmount(query));
     }
 }

@@ -13,35 +13,35 @@ public class ShopCartDO {
      */
     private Long id;
     /**
-     * 书籍ID
+     * bookId
      */
     private Long bookId;
     /**
-     * 用户ID
+     * userId
      */
     private String userId;
     /**
-     * 标题
+     * title
      */
     private String title;
     /**
-     * 作者
+     * author
      */
     private String author;
     /**
-     * 单价
+     * price
      */
     private BigDecimal price;
     /**
-     * 数量
+     * qty
      */
     private BigDecimal qty;
     /**
-     * 总额
+     * amt
      */
     private BigDecimal amt;
     /**
-     * 类型
+     * type
      */
     private Integer type;
 }

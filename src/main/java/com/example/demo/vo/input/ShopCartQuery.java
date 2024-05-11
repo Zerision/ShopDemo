@@ -5,9 +5,9 @@ import lombok.Data;
 
 import java.math.BigDecimal;
 
-@Schema(description = "book list query parameters")
+@Schema(description = "shop cart list query parameters")
 @Data
-public class BookQuery {
+public class ShopCartQuery {
     @Schema(description = "title")
     private String title;
     @Schema(description = "author")

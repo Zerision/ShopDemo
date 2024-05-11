@@ -4,15 +4,15 @@ package com.example.demo.mapping;
 import com.example.demo.model.BookDO;
 import com.example.demo.model.ShopCartDO;
 import com.example.demo.vo.input.ShopCartCreateInputVO;
+import com.example.demo.vo.input.ShopCartInputVO;
 import com.example.demo.vo.output.ShopCartOutputVO;
-import org.mapstruct.Context;
 import org.mapstruct.Mapper;
 
 import java.util.List;
 
 @Mapper(componentModel = "spring")
 public interface ShopCartMapping {
-    List<ShopCartDO> fromShopCartCreateInputVOList(List<ShopCartCreateInputVO> params);
+    List<ShopCartDO> fromShopCartInputVOList(List<ShopCartInputVO> params);
 
     default void fromBookDO(ShopCartDO shopCartDO, BookDO bookDO) {
         shopCartDO.setAuthor(bookDO.getAuthor());
@@ -23,4 +23,6 @@ public interface ShopCartMapping {
     };
 
     List<ShopCartOutputVO> toShopCartOutputVOList(List<ShopCartDO> shopList);
+
+    ShopCartOutputVO toShopCartOutputVO(ShopCartDO shopCartDO);
 }

@@ -13,19 +13,19 @@ public class BookDO {
      */
     private Long id;
     /**
-     * 标题
+     * title
      */
     private String title;
     /**
-     * 作者
+     * author
      */
     private String author;
     /**
-     * 单价
+     * price
      */
     private BigDecimal price;
     /**
-     * 类型
+     * type
      */
     private Integer type;
 }

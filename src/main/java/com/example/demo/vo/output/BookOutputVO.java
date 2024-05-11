@@ -5,7 +5,7 @@ import lombok.Data;
 
 import java.math.BigDecimal;
 
-@Schema(description = "书籍列表查询结果")
+@Schema(description = "book list query results")
 @Data
 public class BookOutputVO {
     /**
@@ -14,23 +14,23 @@ public class BookOutputVO {
     @Schema(description = "id")
     private Long id;
     /**
-     * 标题
+     * title
      */
-    @Schema(description = "标题")
+    @Schema(description = "title")
     private String title;
     /**
-     * 作者
+     * author
      */
-    @Schema(description = "作者")
+    @Schema(description = "author")
     private String author;
     /**
-     * 单价
+     * price
      */
-    @Schema(description = "单价")
+    @Schema(description = "price")
     private BigDecimal price;
     /**
-     * 类型
+     * type
      */
-    @Schema(description = "类型")
+    @Schema(description = "type")
     private Integer type;
 }
