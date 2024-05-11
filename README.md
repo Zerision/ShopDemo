@@ -1,7 +1,7 @@
 # Project Introduction
 Basic REST API for an Online Bookstore.
 
-# Using spring/springbook Components
+# Using spring/springboot Components
 lombok<br>
 mapstruct<br>
 h2database<br>
