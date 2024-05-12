@@ -5,17 +5,17 @@ import lombok.Data;
 
 import java.math.BigDecimal;
 
-@Schema(description = "book list query parameters")
+@Schema(title = "book list query parameters", description = "book list query parameters")
 @Data
 public class BookQuery {
-    @Schema(description = "title")
+    @Schema(description = "book title query parameter", example = "book")
     private String title;
-    @Schema(description = "author")
+    @Schema(description = "book author query parameter", example = "Jone")
     private String author;
-    @Schema(description = "minPrice")
+    @Schema(description = "greater than or equal to minPrice", example = "0")
     private BigDecimal minPrice;
-    @Schema(description = "maxPrice")
+    @Schema(description = "less than maxPrice", example = "100")
     private BigDecimal maxPrice;
-    @Schema(description = "type")
+    @Schema(description = "1-history; 2-education", example = "1")
     private Integer type;
 }

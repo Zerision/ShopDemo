@@ -10,10 +10,10 @@ import java.math.BigDecimal;
 @Schema(description = "shop cart data parameters")
 @Data
 public class ShopCartInputVO {
-    @Schema(description = "bookId")
+    @Schema(description = "bookId", example = "1")
     @NotNull(message = "bookId cannot be null")
     private Long bookId;
-    @Schema(description = "qty")
+    @Schema(description = "qty", example = "1")
     @NotNull(message = "qty cannot be null")
     @DecimalMin(inclusive = false, value = "0", message = "qty must be greater than 0")
     private BigDecimal qty;

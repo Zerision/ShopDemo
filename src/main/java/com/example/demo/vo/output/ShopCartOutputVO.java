@@ -8,44 +8,27 @@ import java.math.BigDecimal;
 @Schema(description = "shop cart list query results")
 @Data
 public class ShopCartOutputVO {
-    /**
-     * id
-     */
-    @Schema(description = "id")
+    @Schema(description = "shop cart id")
     private Long id;
-    /**
-     * title
-     */
-    @Schema(description = "title")
+
+    @Schema(description = "book title")
     private String title;
-    /**
-     * author
-     */
-    @Schema(description = "author")
+
+    @Schema(description = "book author")
     private String author;
-    /**
-     * price
-     */
-    @Schema(description = "price")
+
+    @Schema(description = "book price")
     private BigDecimal price;
-    /**
-     * type
-     */
-    @Schema(description = "type")
+
+    @Schema(description = "1-history; 2-education")
     private Integer type;
-    /**
-     * bookId
-     */
+
     @Schema(description = "bookId")
     private Long bookId;
-    /**
-     * qty
-     */
+
     @Schema(description = "qty")
     private Integer qty;
-    /**
-     * amt
-     */
+
     @Schema(description = "amt")
     private BigDecimal amt;
 

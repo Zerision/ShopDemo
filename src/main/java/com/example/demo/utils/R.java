@@ -7,9 +7,9 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.Serializable;
 
 /**
- * 响应信息主体
+ * response info
  */
-@Schema(description = "响应信息主体")
+@Schema(description = "response info")
 public class R<T> implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -19,13 +19,13 @@ public class R<T> implements Serializable {
 
     public static final int FAIL = 1;
 
-    @Schema(description = "响应描述信息")
+    @Schema(description = "response message")
     private String msg = "success";
 
-    @Schema(description = "响应编码")
+    @Schema(description = "response code")
     private int code = SUCCESS;
 
-    @Schema(description = "响应数据")
+    @Schema(description = "response data")
     private T data;
 
     public R() {
@@ -64,7 +64,7 @@ public class R<T> implements Serializable {
     }
 
     /**
-     * 成功结果返回
+     * success
      * @param data
      * @param <T>
      * @return
@@ -78,9 +78,9 @@ public class R<T> implements Serializable {
 
 
     /**
-     * 失败结果返回
-     * @param code 失败状态码
-     * @param msg   失败描述信息
+     * fail
+     * @param code
+     * @param msg
      * @param <T>
      * @return
      */
@@ -89,8 +89,8 @@ public class R<T> implements Serializable {
     }
 
     /**
-     * 失败结果返回
-     * @param msg   失败描述信息
+     * fail
+     * @param msg
      * @param <T>
      * @return
      */

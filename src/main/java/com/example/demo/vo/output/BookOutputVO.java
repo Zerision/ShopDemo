@@ -8,29 +8,18 @@ import java.math.BigDecimal;
 @Schema(description = "book list query results")
 @Data
 public class BookOutputVO {
-    /**
-     * id
-     */
     @Schema(description = "id")
     private Long id;
-    /**
-     * title
-     */
-    @Schema(description = "title")
+
+    @Schema(description = "book title")
     private String title;
-    /**
-     * author
-     */
-    @Schema(description = "author")
+
+    @Schema(description = "book author")
     private String author;
-    /**
-     * price
-     */
-    @Schema(description = "price")
+
+    @Schema(description = "book price")
     private BigDecimal price;
-    /**
-     * type
-     */
-    @Schema(description = "type")
+
+    @Schema(description = "1-history; 2-education")
     private Integer type;
 }

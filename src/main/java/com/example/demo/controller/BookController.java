@@ -6,17 +6,17 @@ import com.example.demo.vo.input.BookInputVO;
 import com.example.demo.vo.input.BookQuery;
 import com.example.demo.vo.input.BookUpdateInputVO;
 import com.example.demo.vo.output.BookOutputVO;
-import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.annotation.Resource;
 import jakarta.validation.Valid;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springdoc.core.annotations.ParameterObject;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 
-@Tag(description = "book controller", name = "book controller")
+@Tag(name = "book endpoints", description = "Implement RESTFUL endpoints to allow adding books to the store and retrieving the list of available books.")
 @RestController
 @RequestMapping("/book")
 public class BookController {
@@ -28,9 +28,9 @@ public class BookController {
      * @param query
      * @return
      */
-    @Schema(description = "select book list")
     @GetMapping("/list")
-    public R<List<BookOutputVO>> list(BookQuery query) {
+    @Operation(summary = "select book list")
+    public R<List<BookOutputVO>> list(@ParameterObject BookQuery query) {
         List<BookOutputVO> list = bookService.selectList(query);
         return R.success(list);
     }
@@ -39,8 +39,8 @@ public class BookController {
      * select book by id
      * @return
      */
-    @Schema(description = "select book by id")
     @GetMapping("/{id}")
+    @Operation(summary = "select book by id")
     public R<BookOutputVO> get(@PathVariable("id") Long id) {
         return R.success(bookService.selectById(id));
     }
@@ -50,7 +50,7 @@ public class BookController {
      * @param param
      * @return
      */
-    @Schema(description = "create book data")
+    @Operation(summary = "create book data")
     @PostMapping
     public R<BookOutputVO> create(@Valid @RequestBody BookInputVO param) {
         return R.success(bookService.create(param));
@@ -61,7 +61,7 @@ public class BookController {
      * @param param
      * @return
      */
-    @Schema(description = "update book data")
+    @Operation(summary = "update book data")
     @PutMapping
     public R<Boolean> update(@Valid @RequestBody BookUpdateInputVO param) {
         bookService.update(param);
@@ -74,6 +74,7 @@ public class BookController {
      * @return
      */
     @DeleteMapping("{id}")
+    @Operation(summary = "delete book data by id")
     public R<Boolean> delete(@PathVariable("id") Long id) {
         bookService.removeById(id);
         return R.success(Boolean.TRUE);
