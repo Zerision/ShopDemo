@@ -8,7 +8,9 @@ import com.example.demo.vo.output.BookOutputVO;
 import com.example.demo.vo.output.ShopCartOutputVO;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.annotation.Resource;
 import jakarta.validation.Valid;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.math.BigDecimal;
@@ -18,11 +20,8 @@ import java.util.List;
 @RestController
 @RequestMapping("/shopCart")
 public class ShopCartController {
-    private final ShopCartService shopCartService;
-
-    public ShopCartController(ShopCartService shopCartService) {
-        this.shopCartService = shopCartService;
-    }
+    @Resource
+    private ShopCartService shopCartService;
 
     /**
      * create shop cart data

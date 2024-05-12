@@ -3,6 +3,7 @@ package com.example.demo;
 import com.example.demo.service.BookService;
 import com.example.demo.vo.input.BookQuery;
 import com.example.demo.vo.output.BookOutputVO;
+import jakarta.annotation.Resource;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -12,7 +13,7 @@ import java.util.List;
 
 @SpringBootTest
 public class BookServiceTest {
-    @Autowired
+    @Resource
     private BookService bookService;
 
     @Test

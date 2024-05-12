@@ -13,6 +13,7 @@ import com.example.demo.utils.exception.ServiceException;
 import com.example.demo.vo.input.ShopCartInputVO;
 import com.example.demo.vo.input.ShopCartQuery;
 import com.example.demo.vo.output.ShopCartOutputVO;
+import jakarta.annotation.Resource;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
@@ -26,13 +27,10 @@ import java.util.stream.Collectors;
 
 @Service
 public class ShopCartServiceImpl extends ServiceImpl<ShopCartMapper, ShopCartDO> implements ShopCartService {
-    private final BookMapper bookMapper;
-    private final ShopCartMapping shopCartMapping;
-
-    public ShopCartServiceImpl(BookMapper bookMapper, ShopCartMapping shopCartMapping) {
-        this.bookMapper = bookMapper;
-        this.shopCartMapping = shopCartMapping;
-    }
+    @Resource
+    private BookMapper bookMapper;
+    @Resource
+    private ShopCartMapping shopCartMapping;
 
 
     /**

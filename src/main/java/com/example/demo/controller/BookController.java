@@ -8,7 +8,9 @@ import com.example.demo.vo.input.BookUpdateInputVO;
 import com.example.demo.vo.output.BookOutputVO;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.annotation.Resource;
 import jakarta.validation.Valid;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -18,11 +20,8 @@ import java.util.List;
 @RestController
 @RequestMapping("/book")
 public class BookController {
-    private final BookService bookService;
-
-    public BookController(BookService bookService) {
-        this.bookService = bookService;
-    }
+    @Resource
+    private BookService bookService;
 
     /**
      * select book list

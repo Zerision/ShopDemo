@@ -13,6 +13,7 @@ import com.example.demo.vo.input.BookInputVO;
 import com.example.demo.vo.input.BookQuery;
 import com.example.demo.vo.input.BookUpdateInputVO;
 import com.example.demo.vo.output.BookOutputVO;
+import jakarta.annotation.Resource;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
@@ -20,11 +21,8 @@ import java.util.List;
 
 @Service
 public class BookServiceImpl extends ServiceImpl<BookMapper, BookDO> implements BookService {
-    private final BookMapping bookMapping;
-
-    public BookServiceImpl(BookMapping bookMapping) {
-        this.bookMapping = bookMapping;
-    }
+    @Resource
+    private BookMapping bookMapping;
 
     /**
      * select book list

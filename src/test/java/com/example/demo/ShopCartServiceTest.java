@@ -1,13 +1,10 @@
 package com.example.demo;
 
-import com.example.demo.service.BookService;
 import com.example.demo.service.ShopCartService;
-import com.example.demo.vo.input.BookQuery;
-import com.example.demo.vo.input.ShopCartCreateInputVO;
 import com.example.demo.vo.input.ShopCartInputVO;
 import com.example.demo.vo.input.ShopCartQuery;
-import com.example.demo.vo.output.BookOutputVO;
 import com.example.demo.vo.output.ShopCartOutputVO;
+import jakarta.annotation.Resource;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -19,7 +16,7 @@ import java.util.List;
 
 @SpringBootTest
 public class ShopCartServiceTest {
-    @Autowired
+    @Resource
     private ShopCartService shopCartService;
 
     @Test
